@@ -2,12 +2,17 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header";
+import Stats from './components/Stats';
+import { default as stats } from './statOutput';
 
 function App() {
   return (
     <div className="App">
       <Header
         playerName="Bart Starr"
+      />
+      <Stats
+        stats={stats}
       />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
