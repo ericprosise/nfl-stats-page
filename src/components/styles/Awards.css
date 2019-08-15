@@ -1,0 +1,10 @@
+.awards {
+    flex: 1 1 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.awardsImage {
+    height: 20vmin;
+}

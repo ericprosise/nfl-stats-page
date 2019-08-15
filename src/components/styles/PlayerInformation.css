@@ -1,0 +1,15 @@
+.playerInformation {
+    flex: 0 1 25%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.playerName {
+    font-size: 28px;
+    flex: 0 1 100%;
+    font-weight: bold;
+}
+
+.informationLine {
+    flex: 0 1 100%;
+}

@@ -1,0 +1,11 @@
+.careerStats {
+    flex: 0 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 28px;
+}
+
+.statLine {
+    flex: 0 1 100%;
+    font-size: 18px;
+}
