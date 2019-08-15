@@ -6,7 +6,7 @@ function Stats(props) {
         <div>
             <table>
                 <tbody>
-                    {props.stats.stats.map((year) => {
+                    {props.stats.map((year) => {
                         return (
                             <tr key={year.year}>
                                 <td>{year.year}</td>

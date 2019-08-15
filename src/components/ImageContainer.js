@@ -1,10 +1,10 @@
 import React from 'react';
 import './styles/ImageContainer.css';
 
-function ImageContainer() {
+function ImageContainer(props) {
     return (
         <div className="imageContainer">
-            <img itemScope="image" src="https://d395i9ljze9h3x.cloudfront.net/req/20180910/images/headshots/StarBa00_2019.jpg" alt="Photo of Bart Starr" />
+            <img itemScope="image" src={props.src} alt="Bart Starr" />
         </div>
     )
 }

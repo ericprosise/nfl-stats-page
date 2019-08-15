@@ -1,5 +1,10 @@
 const statOutput = {
-    "stats": [{
+
+    "playerInformation": {
+        "imageSrc": "https://d395i9ljze9h3x.cloudfront.net/req/20180910/images/headshots/StarBa00_2019.jpg",
+        "name": "Bart Starr"
+    },
+    "passingStats": [{
         "year": "1956",
         "age": "22",
         "team": "GNB",
@@ -496,6 +501,7 @@ const statOutput = {
         "gwd": "",
         "av": "2"
     }]
+
 }
 
 export default statOutput;

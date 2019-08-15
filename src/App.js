@@ -3,16 +3,17 @@ import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header";
 import Stats from './components/Stats';
-import { default as stats } from './statOutput';
+import { default as player } from './statOutput';
 
 function App() {
+  console.log('player', player);
   return (
     <div className="App">
       <Header
-        playerName="Bart Starr"
+        playerInformation={player.playerInformation}
       />
       <Stats
-        stats={stats}
+        stats={player.passingStats}
       />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
