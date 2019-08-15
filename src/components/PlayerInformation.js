@@ -6,11 +6,10 @@ function PlayerInformation(props) {
         <div className="playerInformation">
             <div className="playerName">{props.playerName}</div>
             <div className="informationLine">
-                Position:
-                <strong> QB</strong>
+                Position: QB
             </div>
             <div className="informationLine">
-                College: <strong>Alabama</strong>
+                College: Alabama
             </div>
             <div className="informationLine">
                 Born: January 9, 1934
