@@ -7,25 +7,17 @@ import {
     ChartSeriesItem,
     ChartCategoryAxis,
     ChartCategoryAxisItem,
-    ChartTooltip,
-    ChartValueAxis,
-    ChartValueAxisItem,
-    ChartLegend,
-    ChartSeriesLabels,
-    ChartSeriesLabelsFrom,
-    ChartSeriesLabelsTo
+    ChartTooltip
 } from '@progress/kendo-react-charts';
 
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import { TableFooter } from '@material-ui/core';
 
-function createData(rows, stats) {
+function createTableData(rows, stats) {
     stats.forEach((stat) => {
         rows.push({
             year: stat.year_id.substr(0, 4),
@@ -66,11 +58,16 @@ class Stats extends React.Component {
     labelContentFrom = (e) => (`${e.value.from}`);
     labelContentTo = (e) => (`${e.value.to}`);
 
+    nestedTooltipRender = ({ point }) => (<span><b>{point.dataItem.field}: {point.value}</b></span>);
+
+
     render() {
+        //Build data sets for charts to use
         const years = []
         this.props.passingStats.forEach((stat) => {
             years.push(stat.year_id.substr(0, 4));
         });
+
         const passYds = []
         this.props.passingStats.forEach((stat) => {
             passYds.push(parseInt(stat.pass_yds));
@@ -78,17 +75,19 @@ class Stats extends React.Component {
 
         const passTds = [];
         this.props.passingStats.forEach((stat) => {
-            passTds.push(parseInt(stat.pass_td));
+            passTds.push({
+                field: "TD",
+                value: parseInt(stat.pass_td)
+            });
         });
 
         const passInts = [];
         this.props.passingStats.forEach((stat) => {
-            passInts.push(parseInt(stat.pass_int));
+            passInts.push({
+                field: "Int",
+                value: parseInt(stat.pass_int)
+            });
         });
-
-        var rows = [];
-        createData(rows, this.props.passingStats);
-
 
         var rangeData = [];
         this.props.passingStats.forEach((stat) => {
@@ -99,16 +98,9 @@ class Stats extends React.Component {
             });
         });
 
-        console.log('rangeData', rangeData);
-
-        var radarData = [];
-        this.props.passingStats.forEach((stat) => {
-            radarData.push({
-                year: stat.year_id.substr(0, 4),
-                rating: parseFloat(stat.pass_rating),
-                yds_per_att: parseFloat(stat.pass_yds_per_att)
-            });
-        });
+        //Create data set for table
+        var rows = [];
+        createTableData(rows, this.props.passingStats);
 
         return (
             <div>
@@ -120,10 +112,9 @@ class Stats extends React.Component {
                 {!this.state.showStatTable &&
                     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                         <div style={{ flex: '0 1 50%' }}>
-
                             <Chart>
                                 <ChartTitle text="Passing Yards" />
-                                <ChartTooltip format="{0}" />
+                                <ChartTooltip format="{0} yds" />
                                 <ChartCategoryAxis>
                                     <ChartCategoryAxisItem title={{ text: 'Years' }} categories={years} />
                                 </ChartCategoryAxis>
@@ -152,9 +143,12 @@ class Stats extends React.Component {
                                     <ChartCategoryAxisItem title={{ text: 'Years' }} categories={years} />
                                 </ChartCategoryAxis>
                                 <ChartSeries>
-                                    <ChartSeriesItem type="column" stack={true} data={passTds} color={'green'} />
-                                    <ChartSeriesItem type="column" data={passInts} color={'red'} />
+                                    <ChartSeriesItem type="column" stack={true} field={'value'} data={passTds} color={'green'} >
+                                    </ChartSeriesItem>
+                                    <ChartSeriesItem type="column" field={'value'} data={passInts} color={'red'} >
+                                    </ChartSeriesItem>
                                 </ChartSeries>
+                                <ChartTooltip render={this.nestedTooltipRender} />
                             </Chart>
                         </div>
                         <div style={{ flex: '0 1 50%' }}>
@@ -180,7 +174,7 @@ class Stats extends React.Component {
                 }
                 {this.state.showStatTable &&
                     <div>
-                        <Table>
+                        <Table size='small'>
                             <TableHead>
                                 <TableRow>
                                     <TableCell>Year</TableCell>
