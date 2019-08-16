@@ -2,7 +2,6 @@ import React from 'react';
 import './styles/PlayerInformation.css';
 
 function PlayerInformation(props) {
-    var position = props.playerInformation.position.trim().split()
     var college = props.playerInformation.college.trim().split(':')[1];
     var birthDate = props.playerInformation.birthDate.trim();
 
