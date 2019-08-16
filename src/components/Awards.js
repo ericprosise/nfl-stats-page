@@ -6,9 +6,13 @@ import './styles/Awards.css';
 function Awards(props) {
     return (
         <div className="awards">
-            <img className="awardsImage" src={Packers_Logo} alt="Packers" />
-            {props.HOF &&
-                <img className="awardsImage" src={HOF} alt="HOF" />}
+            <div style={{ flex: '1 1 auto' }}>
+                <img className="awardsImage" src={Packers_Logo} alt="Packers" />
+            </div>
+            <div style={{ flex: '1 1 auto' }}>
+                {props.HOF &&
+                    <img className="awardsImage" src={HOF} alt="HOF" />}
+            </div>
         </div>
     )
 }

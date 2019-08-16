@@ -14,7 +14,8 @@ function App() {
         playerInformation={player.playerInformation}
       />
       <Stats
-        stats={player.passingStats}
+        passingStats={player.passingStats}
+        rushingReceivingStats={player.rushingReceivingStats}
       />
 
     </div>

@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.3.2",
     "@progress/kendo-drawing": "^1.5.12",
+    "@progress/kendo-react-buttons": "^3.2.2",
     "@progress/kendo-react-charts": "^3.2.2",
     "@progress/kendo-react-intl": "^3.2.2",
     "@progress/kendo-theme-default": "^4.1.0",

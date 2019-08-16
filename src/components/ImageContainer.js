@@ -4,7 +4,7 @@ import './styles/ImageContainer.css';
 function ImageContainer(props) {
     return (
         <div className="imageContainer">
-            <img itemScope="image" src={props.src} alt="Bart Starr" />
+            <img className="image" itemScope="image" src={props.src} alt="Bart Starr" />
         </div>
     )
 }
