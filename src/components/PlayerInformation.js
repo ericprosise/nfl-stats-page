@@ -7,7 +7,10 @@ function PlayerInformation(props) {
 
     return (
         <div className="playerInformation">
-            <div className="playerName">{props.playerInformation.playerName}</div>
+            <div className="playerName">{props.playerInformation.name}</div>
+            <div className="informationLine">
+                Full Name: {props.playerInformation.fullName}
+            </div>
             <div className="informationLine">
                 {props.playerInformation.position}
             </div>
@@ -22,9 +25,6 @@ function PlayerInformation(props) {
             </div>
             <div className="informationLine">
                 Born: {birthDate}
-            </div>
-            <div className="informationLine">
-                Death: May 26, 2019
             </div>
         </div>
     )
