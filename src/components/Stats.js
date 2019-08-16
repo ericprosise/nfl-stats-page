@@ -127,7 +127,7 @@ class Stats extends React.Component {
 
                             <Chart>
                                 <ChartTitle text="Passing Touchdowns" />
-                                <ChartTooltip format="{0}" />
+                                <ChartTooltip format="{0} TDs" />
                                 <ChartCategoryAxis>
                                     <ChartCategoryAxisItem title={{ text: 'Years' }} categories={years} />
                                 </ChartCategoryAxis>
