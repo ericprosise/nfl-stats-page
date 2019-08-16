@@ -2,7 +2,6 @@ import React from 'react';
 import './styles/CareerStats.css';
 
 function CareerStats(props) {
-    console.log("Career Stats props", props);
     return (
         <div className="careerStats">
             Career Stats:

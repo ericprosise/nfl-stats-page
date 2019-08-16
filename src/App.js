@@ -7,7 +7,6 @@ import { default as player } from './statOutput';
 import '@progress/kendo-theme-default/dist/all.css';
 
 function App() {
-  console.log('player', player);
   return (
     <div className="App">
       <Header

@@ -6,7 +6,6 @@ import CareerStats from './CareerStats';
 import Awards from './Awards';
 class Header extends React.Component {
     render() {
-        console.log('props', this.props);
         return (
             <div className="header">
                 <ImageContainer
