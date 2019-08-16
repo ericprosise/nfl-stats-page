@@ -2,17 +2,27 @@ import React from 'react';
 import './styles/PlayerInformation.css';
 
 function PlayerInformation(props) {
+    var position = props.playerInformation.position.trim().split()
+    var college = props.playerInformation.college.trim().split(':')[1];
+    var birthDate = props.playerInformation.birthDate.trim();
+
     return (
         <div className="playerInformation">
-            <div className="playerName">{props.playerName}</div>
+            <div className="playerName">{props.playerInformation.playerName}</div>
             <div className="informationLine">
-                Position: QB
+                {props.playerInformation.position}
             </div>
             <div className="informationLine">
-                College: Alabama
+                College: {college}
             </div>
             <div className="informationLine">
-                Born: January 9, 1934
+                Height: {props.playerInformation.height}
+            </div>
+            <div className="informationLine">
+                Weight: {props.playerInformation.weight}
+            </div>
+            <div className="informationLine">
+                Born: {birthDate}
             </div>
             <div className="informationLine">
                 Death: May 26, 2019

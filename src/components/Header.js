@@ -12,8 +12,9 @@ class Header extends React.Component {
                 <ImageContainer
                     src={this.props.playerInformation.imageSrc} />
                 <PlayerInformation
-                    playerName={this.props.playerInformation.name} />
-                <CareerStats />
+                    playerInformation={this.props.playerInformation} />
+                <CareerStats
+                    careerPassingStats={this.props.careerPassingStats} />
                 <Awards
                     HOF={true} />
             </div>

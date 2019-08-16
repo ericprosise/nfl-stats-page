@@ -12,10 +12,12 @@ function App() {
     <div className="App">
       <Header
         playerInformation={player.playerInformation}
+        careerPassingStats={player.careerPassingStats}
       />
       <Stats
         passingStats={player.passingStats}
         rushingReceivingStats={player.rushingReceivingStats}
+        careerPassingStats={player.careerPassingStats}
       />
 
     </div>

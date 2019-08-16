@@ -1,18 +1,22 @@
 import React from 'react';
 import './styles/CareerStats.css';
 
-function CareerStats() {
+function CareerStats(props) {
+    console.log("Career Stats props", props);
     return (
         <div className="careerStats">
             Career Stats:
             <div className="statLine">
-                <strong>QB Record:</strong> 94-57-6
+                <strong>QB Record: </strong> {props.careerPassingStats.qb_rec}
             </div>
             <div className="statLine">
-                <strong>Passing Yards:</strong> 24,718
+                <strong>Passing Yards: </strong> {props.careerPassingStats.pass_yds}
             </div>
             <div className="statLine">
-                <strong>TD:</strong> 152
+                <strong>TD: </strong> {props.careerPassingStats.pass_td}
+            </div>
+            <div className="statLine">
+                <strong>INT: </strong> {props.careerPassingStats.pass_int}
             </div>
         </div>
     )

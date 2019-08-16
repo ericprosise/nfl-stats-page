@@ -23,6 +23,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { TableFooter } from '@material-ui/core';
 
 function createData(rows, stats) {
     stats.forEach((stat) => {
@@ -170,7 +171,7 @@ class Stats extends React.Component {
                                     </ChartSeriesItem>
                                 </ChartSeries>
                                 <ChartCategoryAxis>
-                                    <ChartCategoryAxisItem labels={{ rotation: 'auto' }} />
+                                    <ChartCategoryAxisItem title={{ text: 'Years' }} categories={years} labels={{ rotation: 'auto' }} />
                                 </ChartCategoryAxis>
                                 <ChartTooltip render={this.tooltipRender} />
                             </Chart>
@@ -212,6 +213,21 @@ class Stats extends React.Component {
                                     </TableRow>
                                 ))}
                             </TableBody>
+                            <TableFooter>
+                                <TableRow>
+                                    <TableCell>{this.props.careerPassingStats.year_id}</TableCell>
+                                    <TableCell></TableCell>
+                                    <TableCell>{this.props.careerPassingStats.g}</TableCell>
+                                    <TableCell>{this.props.careerPassingStats.gs}</TableCell>
+                                    <TableCell>{this.props.careerPassingStats.pass_cmp}</TableCell>
+                                    <TableCell>{this.props.careerPassingStats.pass_att}</TableCell>
+                                    <TableCell>{this.props.careerPassingStats.pass_cmp_perc}</TableCell>
+                                    <TableCell>{this.props.careerPassingStats.pass_yds}</TableCell>
+                                    <TableCell>{this.props.careerPassingStats.pass_td}</TableCell>
+                                    <TableCell>{this.props.careerPassingStats.pass_int}</TableCell>
+                                    <TableCell>{this.props.careerPassingStats.pass_rating}</TableCell>
+                                </TableRow>
+                            </TableFooter>
                         </Table>
                     </div>
                 }

@@ -8,4 +8,9 @@
 .statLine {
     flex: 0 1 100%;
     font-size: 18px;
+    display: flex;
+}
+
+.statLine strong {
+    padding-right: 10px;
 }
